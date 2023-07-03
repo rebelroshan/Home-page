@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <div class="menu-bar">
+        <ul>
+            <li class="active"><a href="#"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fa fa-info"></i>About Us</a>
+                <div class="sub-menu-1">
+                    <ul>
+                        <li><a href="#">History</a></li>
+                        <li><a href="#">Vision & Mission</a></li>
+                        <li><a href="#">Principal's Message</a></li>
+                        <li><a href="#">The Institute</a></li>
+                        <li><a href="https://g.page/modern-college-ghaziabad?share" target="_blank">Location</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#"><i class="fa fa-lock"></i>Administration</a></li>
+            <li><a href="#"><i class="fa fa-book"></i>Course</a>
+                <div class="sub-menu-1">
+                    <ul>
+                        <li><a href="#">IT</a></li>
+                        <li><a href="#">Management</a></li>
+                        <li><a href="#">Accounts</a></li>
+                        <li><a href="#">Education</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#"><i class="fa fa-user"></i>Faculty</a></li>
+            <li><a href="#"><i class="fa fa-newspaper-o"></i>Notice</a></li>
+            <li><a href="contact.html" target="_blank"><i class="fa fa-phone-square"></i>Contact us</a></li>
+            <li><a href="login.html" target="_blank"><i class="fa fa-sign-in"></i>Log In</a></li>
+        </ul>
+    </div>
+
+    <div class="img-slider">
+        <div class="slide active">
+            <img src="1.jpg" alt="">
+            <div class="info">
+                <h2>Slide 01</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="2.jpg" alt="">
+            <div class="info">
+                <h2>Slide 02</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="3.jpg" alt="">
+            <div class="info">
+                <h2>Slide 03</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="4.jpg" alt="">
+            <div class="info">
+                <h2>Slide 04</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="5.jpg" alt="">
+            <div class="info">
+                <h2>Slide 05</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="navigation">
+            <div class="btn active"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var slides = document.querySelectorAll('.slide');
+        var btns = document.querySelectorAll('.btn');
+        let currentSlide = 1;
+
+        // Javascript for image slider manual navigation
+        var manualNav = function(manual) {
+            slides.forEach((slide) => {
+                slide.classList.remove('active');
+
+                btns.forEach((btn) => {
+                    btn.classList.remove('active');
+                });
+            });
+
+            slides[manual].classList.add('active');
+            btns[manual].classList.add('active');
+        }
+
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                manualNav(i);
+                currentSlide = i;
+            });
+        });
+
+        // Javascript for image slider autoplay navigation
+        var repeat = function(activeClass) {
+            let active = document.getElementsByClassName('active');
+            let i = 1;
+
+            var repeater = () => {
+                setTimeout(function() {
+                    [...active].forEach((activeSlide) => {
+                        activeSlide.classList.remove('active');
+                    });
+
+                    slides[i].classList.add('active');
+                    btns[i].classList.add('active');
+                    i++;
+
+                    if (slides.length == i) {
+                        i = 0;
+                    }
+                    if (i >= slides.length) {
+                        return;
+                    }
+                    repeater();
+                }, 10000);
+            }
+            repeater();
+        }
+        repeat();
+    </script>
+
+    <div class="middle-content">
+        <div class="about">
+            <h3>About Us</h3>
+            <div class="about-fill">
+                <div class="space-div">
+                    <div class="img-box"><img src="college.jpg" alt="College Photo"></div>
+                </div>
+                <p>
+                    A journey in Modern College of Professional Studies, Mohan Nagar, Ghaziabad is a journey towards success. It is an institute which empowers you towards specialization in management, information technology and education. It helps you to expand your knowledge
+                    & enhance skills to achieve success. MCPS is affiliated to Chaudhary Charan Singh University (CCS University), Meerut for imparting education for Bachelor of Commerce (B.Com), Bachelor of Computer Application (BCA), Bachelor of Business
+                    Administration (BBA), Master of Education(M.Ed.), Bachelor of Education (B.Ed.) and Diploma in Elementary Education (D.El.Ed.)(BTC) courses. All the teacher education courses are approved by N.C.T.E. and the college follows guidelines
+                    of council as laid by them to conduct teacher education programms. Our college is accredited as “B+” grade by. </p>
+                <a href="#AboutUs" target="_blank"><img src="readmore.gif" id="readmore" alt="Read More">
+                </a>
+
+            </div>
+        </div>
+
+        <div class="news">
+            <h3>News & Updates</h3>
+            <div class="news-fill">
+                <table>
+                    <tr>
+                        <td>
+                            <span><img src="new.gif" alt="New" width="35" height="20"><br></span>
+                            <img src="bullet2.png" width="15" height="15"> <a href="">Roshan</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><img src="new.gif" alt="New" width="35" height="20"><br></span>
+                            <img src="bullet2.png" width="15" height="15"> <a href="">Shivani</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <img src="bullet2.png" width="15" height="15"> <a href="">Sumit</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <img src="bullet2.png" width="15" height="15"> <a href="">Vaini</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <img src="bullet2.png" width="15" height="15"> <a href="">Arvind Kumar Pandey</a>
+                        </td>
+                    </tr>
+
+                </table>
+                <div class="more-div">
+                    <a href="#NewsMore" id="news-more" target="_blank"><span><img src="more.png" height="10" width="20">More</span></a>
+                </div>
+
+            </div>
+        </div>
+        <div class="courses">
+            <h3>Courses</h3>
+            <div class="courses-fill">
+                <b id="ccs"> CCS University Approves Courses</b>
+                <ul>
+                    <li><span class="material-icons">
+                    double_arrow
+                    </span>
+                        <a href="">BCA (3 Year full Time Course)</a>
+                    </li>
+                    <hr>
+                    <li><span class="material-icons">
+                    double_arrow
+                    </span>
+                        <a href="">BBA (3 Year full Time Course)</a>
+                    </li>
+                    <hr>
+                    <li><span class="material-icons">
+                    double_arrow
+                    </span>
+                        <a href="">B.Com (3 Year full Time Course)</a>
+                    </li>
+                    <hr>
+                    <li><span class="material-icons">
+                    double_arrow
+                    </span>
+                        <a href="">D.El.Ed (2 Year full Time Course)</a>
+                    </li>
+                    <hr>
+                    <li><span class="material-icons">
+                    double_arrow
+                    </span>
+                        <a href="">B.Ed (2 Year full Time Course)</a>
+                    </li>
+                    <hr>
+                    <li><span class="material-icons">
+                    double_arrow
+                    </span>
+                        <a href="">M.Ed (2 Year full Time Course)</a>
+                    </li>
+                    <hr>
+                </ul><br>
+                <em><a href="#Apply Online Now" id="blink"> Apply Online Now</a></em>
+            </div>
+        </div>
+        <div class="principal-msg">
+            <h3>Principal's Message</h3>
+            <div class="principal-msg-fill">
+                <div class="principal-space">
+                    <div class="principal-img-box" title="Our Principal"><img src="principal.jpg" alt="Principal"></div>
+                </div>
+                <p>"Education is the manifestation from within”. There is knowledge in all beings, it only requires awakening, the task of a teacher being awaken the senses, so that students may learn to use their eyes, ears and hands properly. Education
+                    is not collecting the facts and information; it is concentration of mind and heart. Our aim is not producing teachers, lawyers, businessmen but the most important thing is to eradicate ignorance and negativity. “A teacher shows the
+                    path, it is though who has to walk."</p>
+            </div>
+            <span><a href="#Principal Read More" ><img src="readmore.gif" id="principal-readmore"></a></span>
+        </div>
+        <div class="quick">
+            <h3>Quick Links</h3>
+            <div class="quickl-fill">
+                <ul>
+                    <li><span class="material-icons">
+                    double_arrow
+                    </span>
+                        <a href="">Online Admission Form</a>
+                    </li>
+                    <hr>
+                    <li><span class="material-icons">
+                    double_arrow
+                    </span>
+                        <a href="">Timing Schedule</a>
+                    </li>
+                    <hr>
+                    <li><span class="material-icons">
+                    double_arrow
+                    </span>
+                        <a href="">Uniform</a>
+                    </li>
+                    <hr>
+                    <li><span class="material-icons">
+                    double_arrow
+                    </span>
+                        <a href="">Infrastructure</a>
+                    </li>
+                    <hr>
+                    <li><span class="material-icons">
+                    double_arrow
+                    </span>
+                        <a href="">Academic Calender</a>
+                    </li>
+                    <hr>
+                    <li><span class="material-icons">
+                    double_arrow
+                    </span>
+                        <a href="">Our Faculty</a>
+                    </li>
+                    <hr>
+                </ul><br>
+            </div>
+        </div>
+
+        <div class="ourvam">
+            <h3>Our Vision & Mission</h3>
+            <div class="ourvam-fill">
+                <img src="visionmission.png" alt="Vision & Mission">
+                <div class="vission">
+                    <span class="material-icons">
+                    double_arrow
+                    </span>
+                    <h2>Vision :</h2>
+                    <p>Strengthen the nation with excellent professionals in the field of Education, Science & Technology, Law and Management with leadership qualities and best managerial skills in their field.</p>
+                </div>
+                <div class="mission">
+                    <span class="material-icons">
+                        double_arrow
+                        </span>
+                    <h2>Mission :</h2>
+                    <p>To serve the society and improve quality of life in every sphere. To become a recognized elite education institution by nurturing high quality talent, providing excellent academic & research environment and promoting dissemination
+                        of knowledge.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="recent">
+            <h1>Recent Photos</h1>
+            <table>
+                <tr>
+                    <center>
+                        <td>
+                            <img src="vaini.jpg" alt="">
+                        </td>
+                    </center>
+                    <center>
+                        <td>
+                            <img src="vaini.jpg" alt="">
+                        </td>
+                    </center>
+                    <center>
+                        <td>
+                            <img src="vaini.jpg" alt="">
+                        </td>
+                    </center>
+                    <center>
+                        <td>
+                            <img src="vaini.jpg" alt="">
+                        </td>
+                    </center>
+                    <center>
+                        <td>
+                            <img src="vaini.jpg" alt="">
+                        </td>
+                    </center>
+                    <center>
+                        <td>
+                            <img src="vaini.jpg" alt="">
+                        </td>
+                    </center>
+
+                </tr>
+                <tr>
+                    <center>
+                        <td>
+                            <img src="vaini.jpg" alt="">
+                        </td>
+                    </center>
+                    <center>
+                        <td>
+                            <img src="vaini.jpg" alt="">
+                        </td>
+                    </center>
+                    <center>
+                        <td>
+                            <img src="vaini.jpg" alt="">
+                        </td>
+                    </center>
+                    <center>
+                        <td>
+                            <img src="vaini.jpg" alt="">
+                        </td>
+                    </center>
+                    <center>
+                        <td>
+                            <img src="vaini.jpg" alt="">
+                        </td>
+                    </center>
+                    <center>
+                        <td>
+                            <img src="vaini.jpg" alt="">
+                        </td>
+                    </center>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <div class="academic">
+            <h3>Academic</h3>
+            <ul>
+                <li><a href="#Admission" target="_blank">Admission</a></li>
+                <li><a href="#Online Admission form" target="_blank">Online Admission form</a></li>
+                <li><a href="#Our Faculty" target="_blank">Our Faculty</a></li>
+                <li><a href="#Fee Policy" target="_blank">Fee Policy</a></li>
+                <li><a href="#Subject" target="_blank">Subject</a></li>
+                <li><a href="#Information Brochure" target="_blank">Information Brochure</a></li>
+                <li><a href="#Placement Login" target="_blank">Placement Login</a></li>
+            </ul>
+        </div>
+
+        <div class="infra">
+            <h3>Infrastructure</h3>
+            <ul>
+                <li><a href="#Overview" target="_blank">Overview</a></li>
+                <li><a href="#Smart class" target="_blank">Smart class</a></li>
+                <li><a href="#Mathematics lab" target="_blank">Mathematics lab</a></li>
+                <li><a href="#Geography Labouratory" target="_blank">Geography Labouratory</a></li>
+                <li><a href="#Information Technology Lab" target="_blank">Information Technology Lab</a></li>
+            </ul>
+        </div>
+
+
+        <div class="contactus">
+            <h3 style="color: blue;">Contact Us</h3>
+            <h4 style="padding: 5px;">College name </h4>
+            <address>674 Linda Street <br>Phoenix Ville, PA 19460 <br>USA </address>
+            <br>
+            <table>
+                <tr>
+                    <td><img src="phone.png" alt="" style="width: 30px; height: 35px;"></td>
+                    <td style="color: rgb(7, 7, 187);">+91-8564869903, +91-9650666730</td>
+                </tr>
+                <tr>
+                    <td><img src="visit.png" alt="visit" style="width: 30px; height: 30px;"></td>
+                    <td style="color: rgb(7, 7, 187);">contact@collegename.com</td>
+                </tr>
+            </table>
+        </div>
+    </footer>
+    <div class="copyright">
+        <center>
+            <p>© Copyright 2021.E-Administration System . All Rights Reserved.</p>
+        </center>
+    </div>
+
+
+
+</body>
+
+</html>
